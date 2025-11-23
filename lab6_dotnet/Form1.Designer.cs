@@ -3,178 +3,166 @@
     partial class MainForm
     {
         private System.ComponentModel.IContainer components = null;
-
-        private System.Windows.Forms.DataGridView dataGridCars;
-        private System.Windows.Forms.TextBox brandBox;
-        private System.Windows.Forms.TextBox ownerBox;
-        private System.Windows.Forms.TextBox yearBox;
-        private System.Windows.Forms.TextBox mileageBox;
-        private System.Windows.Forms.TextBox filterYearBox;
-
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnSortMileage;
-        private System.Windows.Forms.Button btnSortYear;
-        private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.DataGridView dataGridViewResults;
+        private System.Windows.Forms.Button btnShowBrands;
+        private System.Windows.Forms.Button btnGroupByYear;
+        private System.Windows.Forms.Button btnAvgMileage;
+        private System.Windows.Forms.Button btnCountByYear;
+        private System.Windows.Forms.Button btnMaxMileageForBrand;
+        private System.Windows.Forms.TextBox txtBrand;
+        private System.Windows.Forms.Button btnSortByMileage;
+        private System.Windows.Forms.TextBox txtFilterYear;
+        private System.Windows.Forms.Button btnFilterByYear;
+        private System.Windows.Forms.Button btnLoadFile;
+        private System.Windows.Forms.Button btnSaveFile;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            dataGridCars = new DataGridView();
-            brandBox = new TextBox();
-            ownerBox = new TextBox();
-            yearBox = new TextBox();
-            mileageBox = new TextBox();
-            filterYearBox = new TextBox();
-            btnAdd = new Button();
-            btnRemove = new Button();
-            btnSortMileage = new Button();
-            btnSortYear = new Button();
-            btnFilter = new Button();
-            btnSave = new Button();
-            btnLoad = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridCars).BeginInit();
+            dataGridViewResults = new DataGridView();
+            btnShowBrands = new Button();
+            btnGroupByYear = new Button();
+            btnAvgMileage = new Button();
+            btnCountByYear = new Button();
+            btnMaxMileageForBrand = new Button();
+            txtBrand = new TextBox();
+            btnSortByMileage = new Button();
+            txtFilterYear = new TextBox();
+            btnFilterByYear = new Button();
+            btnLoadFile = new Button();
+            btnSaveFile = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewResults).BeginInit();
             SuspendLayout();
             // 
-            // dataGridCars
+            // dataGridViewResults
             // 
-            dataGridCars.Location = new Point(12, 12);
-            dataGridCars.Name = "dataGridCars";
-            dataGridCars.Size = new Size(600, 300);
-            dataGridCars.TabIndex = 0;
+            dataGridViewResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewResults.Location = new Point(12, 12);
+            dataGridViewResults.Name = "dataGridViewResults";
+            dataGridViewResults.Size = new Size(500, 300);
+            dataGridViewResults.TabIndex = 0;
             // 
-            // brandBox
+            // btnShowBrands
             // 
-            brandBox.Location = new Point(12, 330);
-            brandBox.Name = "brandBox";
-            brandBox.PlaceholderText = "Марка";
-            brandBox.Size = new Size(100, 23);
-            brandBox.TabIndex = 1;
+            btnShowBrands.Location = new Point(530, 12);
+            btnShowBrands.Name = "btnShowBrands";
+            btnShowBrands.Size = new Size(150, 30);
+            btnShowBrands.TabIndex = 3;
+            btnShowBrands.Text = "Показати марки";
+            btnShowBrands.Click += btnShowBrands_Click;
             // 
-            // ownerBox
+            // btnGroupByYear
             // 
-            ownerBox.Location = new Point(130, 330);
-            ownerBox.Name = "ownerBox";
-            ownerBox.PlaceholderText = "Власник";
-            ownerBox.Size = new Size(100, 23);
-            ownerBox.TabIndex = 2;
+            btnGroupByYear.Location = new Point(530, 50);
+            btnGroupByYear.Name = "btnGroupByYear";
+            btnGroupByYear.Size = new Size(150, 30);
+            btnGroupByYear.TabIndex = 4;
+            btnGroupByYear.Text = "Групування за роком";
+            btnGroupByYear.Click += btnGroupByYear_Click;
             // 
-            // yearBox
+            // btnAvgMileage
             // 
-            yearBox.Location = new Point(250, 330);
-            yearBox.Name = "yearBox";
-            yearBox.PlaceholderText = "Рік";
-            yearBox.Size = new Size(100, 23);
-            yearBox.TabIndex = 3;
+            btnAvgMileage.Location = new Point(530, 88);
+            btnAvgMileage.Name = "btnAvgMileage";
+            btnAvgMileage.Size = new Size(150, 30);
+            btnAvgMileage.TabIndex = 5;
+            btnAvgMileage.Text = "Середній пробіг";
+            btnAvgMileage.Click += btnAvgMileage_Click;
             // 
-            // mileageBox
+            // btnCountByYear
             // 
-            mileageBox.Location = new Point(370, 330);
-            mileageBox.Name = "mileageBox";
-            mileageBox.PlaceholderText = "Пробіг";
-            mileageBox.Size = new Size(100, 23);
-            mileageBox.TabIndex = 4;
+            btnCountByYear.Location = new Point(530, 126);
+            btnCountByYear.Name = "btnCountByYear";
+            btnCountByYear.Size = new Size(150, 30);
+            btnCountByYear.TabIndex = 6;
+            btnCountByYear.Text = "Кількість авто по роках";
+            btnCountByYear.Click += btnCountByYear_Click;
             // 
-            // filterYearBox
+            // btnMaxMileageForBrand
             // 
-            filterYearBox.Location = new Point(12, 410);
-            filterYearBox.Name = "filterYearBox";
-            filterYearBox.PlaceholderText = "Фільтр: рік";
-            filterYearBox.Size = new Size(100, 23);
-            filterYearBox.TabIndex = 5;
+            btnMaxMileageForBrand.Location = new Point(168, 369);
+            btnMaxMileageForBrand.Name = "btnMaxMileageForBrand";
+            btnMaxMileageForBrand.Size = new Size(150, 30);
+            btnMaxMileageForBrand.TabIndex = 8;
+            btnMaxMileageForBrand.Text = "Макс пробіг марки";
+            btnMaxMileageForBrand.Click += btnMaxMileageForBrand_Click;
             // 
-            // btnAdd
+            // txtBrand
             // 
-            btnAdd.Location = new Point(12, 360);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 6;
-            btnAdd.Text = "Додати";
-            btnAdd.Click += btnAdd_Click;
+            txtBrand.Location = new Point(12, 374);
+            txtBrand.Name = "txtBrand";
+            txtBrand.PlaceholderText = "Введіть марку";
+            txtBrand.Size = new Size(150, 23);
+            txtBrand.TabIndex = 7;
             // 
-            // btnRemove
+            // btnSortByMileage
             // 
-            btnRemove.Location = new Point(100, 360);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(75, 23);
-            btnRemove.TabIndex = 7;
-            btnRemove.Text = "Видалити";
-            btnRemove.Click += btnRemove_Click;
+            btnSortByMileage.Location = new Point(530, 162);
+            btnSortByMileage.Name = "btnSortByMileage";
+            btnSortByMileage.Size = new Size(150, 30);
+            btnSortByMileage.TabIndex = 11;
+            btnSortByMileage.Text = "Сортувати за пробігом";
+            btnSortByMileage.Click += btnSortByMileage_Click;
             // 
-            // btnSortMileage
+            // txtFilterYear
             // 
-            btnSortMileage.Location = new Point(12, 450);
-            btnSortMileage.Name = "btnSortMileage";
-            btnSortMileage.Size = new Size(162, 23);
-            btnSortMileage.TabIndex = 8;
-            btnSortMileage.Text = "Сортувати по пробігу";
-            btnSortMileage.Click += btnSortMileage_Click;
+            txtFilterYear.Location = new Point(12, 331);
+            txtFilterYear.Name = "txtFilterYear";
+            txtFilterYear.PlaceholderText = "Рік для фільтру";
+            txtFilterYear.Size = new Size(150, 23);
+            txtFilterYear.TabIndex = 9;
             // 
-            // btnSortYear
+            // btnFilterByYear
             // 
-            btnSortYear.Location = new Point(180, 450);
-            btnSortYear.Name = "btnSortYear";
-            btnSortYear.Size = new Size(164, 23);
-            btnSortYear.TabIndex = 9;
-            btnSortYear.Text = "Сортувати по року";
-            btnSortYear.Click += btnSortYear_Click;
+            btnFilterByYear.Location = new Point(168, 326);
+            btnFilterByYear.Name = "btnFilterByYear";
+            btnFilterByYear.Size = new Size(150, 30);
+            btnFilterByYear.TabIndex = 10;
+            btnFilterByYear.Text = "Фільтрувати за роком";
+            btnFilterByYear.Click += btnFilterByYear_Click;
             // 
-            // btnFilter
+            // btnLoadFile
             // 
-            btnFilter.Location = new Point(118, 410);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(87, 23);
-            btnFilter.TabIndex = 10;
-            btnFilter.Text = "Фільтрувати";
-            btnFilter.Click += btnFilter_Click;
+            btnLoadFile.Location = new Point(472, 369);
+            btnLoadFile.Name = "btnLoadFile";
+            btnLoadFile.Size = new Size(100, 30);
+            btnLoadFile.TabIndex = 1;
+            btnLoadFile.Text = "Завантажити";
+            btnLoadFile.Click += btnLoadFile_Click;
             // 
-            // btnSave
+            // btnSaveFile
             // 
-            btnSave.Location = new Point(456, 450);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 11;
-            btnSave.Text = "Зберегти";
-            btnSave.Click += btnSave_Click;
-            // 
-            // btnLoad
-            // 
-            btnLoad.Location = new Point(537, 450);
-            btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(75, 23);
-            btnLoad.TabIndex = 12;
-            btnLoad.Text = "Завантажити";
-            btnLoad.Click += btnLoad_Click;
+            btnSaveFile.Location = new Point(578, 367);
+            btnSaveFile.Name = "btnSaveFile";
+            btnSaveFile.Size = new Size(100, 30);
+            btnSaveFile.TabIndex = 2;
+            btnSaveFile.Text = "Зберегти";
+            btnSaveFile.Click += btnSaveFile_Click;
             // 
             // MainForm
             // 
-            ClientSize = new Size(640, 520);
-            Controls.Add(dataGridCars);
-            Controls.Add(brandBox);
-            Controls.Add(ownerBox);
-            Controls.Add(yearBox);
-            Controls.Add(mileageBox);
-            Controls.Add(filterYearBox);
-            Controls.Add(btnAdd);
-            Controls.Add(btnRemove);
-            Controls.Add(btnSortMileage);
-            Controls.Add(btnSortYear);
-            Controls.Add(btnFilter);
-            Controls.Add(btnSave);
-            Controls.Add(btnLoad);
+            ClientSize = new Size(690, 406);
+            Controls.Add(dataGridViewResults);
+            Controls.Add(btnLoadFile);
+            Controls.Add(btnSaveFile);
+            Controls.Add(btnShowBrands);
+            Controls.Add(btnGroupByYear);
+            Controls.Add(btnAvgMileage);
+            Controls.Add(btnCountByYear);
+            Controls.Add(txtBrand);
+            Controls.Add(btnMaxMileageForBrand);
+            Controls.Add(txtFilterYear);
+            Controls.Add(btnFilterByYear);
+            Controls.Add(btnSortByMileage);
             Name = "MainForm";
-            Text = "Автомобільна відомість";
-            ((System.ComponentModel.ISupportInitialize)dataGridCars).EndInit();
+            Text = "CarApp LINQ Demo";
+            Load += MainForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewResults).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

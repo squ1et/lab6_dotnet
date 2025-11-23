@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using lab6_dotnet;
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace lab6_test
 {
@@ -25,7 +26,8 @@ namespace lab6_test
 
             var result = list.FilterByYear(2010);
 
-            Assert.AreEqual(0, result.Count);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("B", result[0].Brand);  // Врахуй, що це > 2010, тому "B"
         }
 
         [TestMethod]
@@ -39,6 +41,78 @@ namespace lab6_test
 
             Assert.AreEqual(100, list.Cars[0].Mileage);
         }
+
+        [TestMethod]
+        public void GetAllBrands_ReturnsDistinctBrands()
+        {
+            CarList list = new CarList();
+            list.Add(new Car("Toyota", "Ivanov", 2015, 50000));
+            list.Add(new Car("Ford", "Petrenko", 2018, 30000));
+            list.Add(new Car("Toyota", "Shevchenko", 2017, 45000));
+
+            var brands = list.GetAllBrands();
+
+            Assert.AreEqual(2, brands.Count);
+            Assert.IsTrue(brands.Contains("Toyota"));
+            Assert.IsTrue(brands.Contains("Ford"));
+        }
+
+        [TestMethod]
+        public void GroupByYear_Works()
+        {
+            CarList list = new CarList();
+            list.Add(new Car("A", "A", 2000, 100));
+            list.Add(new Car("B", "B", 2020, 200));
+            list.Add(new Car("C", "C", 2000, 150));
+
+            var groups = list.GroupByYear().ToList();
+
+            Assert.AreEqual(2, groups.Count); // 2 різні роки
+            var group2000 = groups.FirstOrDefault(g => g.Key == 2000);
+            Assert.IsNotNull(group2000);
+            Assert.AreEqual(2, group2000.Count());
+        }
+
+        [TestMethod]
+        public void AverageMileage_Works()
+        {
+            CarList list = new CarList();
+            list.Add(new Car("A", "A", 2000, 100));
+            list.Add(new Car("B", "B", 2000, 300));
+
+            var avg = list.AverageMileage();
+
+            Assert.AreEqual(200, avg);
+        }
+
+        [TestMethod]
+        public void CountByYear_Works()
+        {
+            CarList list = new CarList();
+            list.Add(new Car("A", "A", 2000, 100));
+            list.Add(new Car("B", "B", 2000, 300));
+            list.Add(new Car("C", "C", 2010, 400));
+
+            var dict = list.CountByYear();
+
+            Assert.AreEqual(2, dict[2000]);
+            Assert.AreEqual(1, dict[2010]);
+        }
+
+        [TestMethod]
+        public void MaxMileageForBrand_Works()
+        {
+            CarList list = new CarList();
+            list.Add(new Car("Toyota", "A", 2000, 100));
+            list.Add(new Car("Toyota", "B", 2005, 300));
+            list.Add(new Car("Ford", "C", 2010, 400));
+
+            int maxMileage = list.MaxMileageForBrand("Toyota");
+
+            Assert.AreEqual(300, maxMileage);
+        }
+
+        // Інтеграційні тести для Save/Load
 
         [TestMethod]
         public void SaveToFile_And_LoadFromFile_WorkCorrectly()
